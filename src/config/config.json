@@ -2,9 +2,26 @@
   "port": 8080,
   "database": {
     "uri": "mongodb://localhost:27017/UserInfo?readPreference=primary&appname=MongoDB%20Compass&directConnection=true&ssl=false",
-    "database": "admin",
+    "database": "UserInfo",
     "connectionLimit": 30,
     "mutipleStatements": "true",
     "charset": "utf8mb4"
+  },
+  "messages": {
+    "invalidParams": "Invalid Params",
+    "invalidEmailFormat": "Invalid Email Format",
+    "alreadyRegistered": "Email was already registered",
+    "notRegistered": "Email was not registered",
+    "successfullyRegistered": "Successfully Registered",
+    "internalServerError": "Internal Server Error"
+  },
+  "routes": {
+    "api": {
+      "registration": "/api/registration",
+      "doLogin": "/api/doLogin"
+    }
+  },
+  "JWT": {
+    "secretKey": "doOdLeBluE"
   }
 }
