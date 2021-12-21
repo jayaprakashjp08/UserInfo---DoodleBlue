@@ -17,5 +17,9 @@ module.exports = (config) => {
     verifyUserToken: (req, res, next) => {
       authentication.verifyUserToken(req, res, next);
     },
+
+    updateUserProfile: (req, res, next) => {
+      userService.updateUserProfile(req, res, next);
+    },
   };
 };

@@ -20,13 +20,15 @@
     "tokenEmpty": "Token Empty",
     "invalidToken": "Invalid Token",
     "tokenExpired": "Token Expired",
-    "updatedPassword": "Password updated successfully"
+    "updatedPassword": "Password updated successfully",
+    "profileUpdated": "Profile Updated Successfully"
   },
   "routes": {
     "api": {
       "registration": "/api/registration",
       "doLogin": "/api/doLogin",
-      "forgotPassword": "/api/forgotPassword"
+      "forgotPassword": "/api/forgotPassword",
+      "updateUserProfile": "/api/updateUserProfile"
     }
   },
   "JWT": {

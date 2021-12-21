@@ -5,14 +5,20 @@ const Schema = mongoose.Schema;
 
 const usersSchema = new Schema(
   {
-    userName:String,
+    userName: String,
     phoneNumber: String,
     email: {
       type: String,
       lowercase: true,
     },
     password: String,
-
+    highestQualification: String,
+    school_or_college: String,
+    previousCompany: String,
+    companyName: String,
+    domain: String,
+    startDate: Date,
+    endDate: Date, 
     createdAt: { type: Date, required: true, default: Date.now },
     updatedAt: {
       type: Date,

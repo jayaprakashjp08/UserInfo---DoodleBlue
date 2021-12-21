@@ -10,4 +10,10 @@ module.exports = (router) => {
     process.verifyUserToken,
     process.forgotPassword
   );
+
+  router.post(
+    routes.api.updateUserProfile,
+    process.verifyUserToken,
+    process.updateUserProfile
+  );
 };

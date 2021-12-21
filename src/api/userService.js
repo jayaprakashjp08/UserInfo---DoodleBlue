@@ -164,5 +164,27 @@ module.exports = (config) => {
         });
       }
     },
+
+    updateUserProfile: async (req, res) => {
+      try {
+        const userData = jwt.decode(
+          req.headers.token || req.headers["x-access-token"]
+        );
+        const query = { _id: userData.userId };
+        const updateUserProfile = await usersSchema.updateOne(query, {
+          $set: req.body,
+        });
+        return res.status(200).json({
+            status: true,
+            message: config.messages.profileUpdated,
+          });
+      } catch (e) {
+        return res.status(500).json({
+          status: false,
+          data: e,
+          message: config.messages.internalServerError,
+        });
+      }
+    },
   };
 };
