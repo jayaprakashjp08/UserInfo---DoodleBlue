@@ -13,12 +13,20 @@
     "alreadyRegistered": "Email was already registered",
     "notRegistered": "Email was not registered",
     "successfullyRegistered": "Successfully Registered",
-    "internalServerError": "Internal Server Error"
+    "internalServerError": "Internal Server Error",
+    "loginSuccessful": "Successfully LoggedIn",
+    "invalidPassword": "Invalid Username or Password",
+    "passwordShouldMatch": "New password and Confirm password should match",
+    "tokenEmpty": "Token Empty",
+    "invalidToken": "Invalid Token",
+    "tokenExpired": "Token Expired",
+    "updatedPassword": "Password updated successfully"
   },
   "routes": {
     "api": {
       "registration": "/api/registration",
-      "doLogin": "/api/doLogin"
+      "doLogin": "/api/doLogin",
+      "forgotPassword": "/api/forgotPassword"
     }
   },
   "JWT": {

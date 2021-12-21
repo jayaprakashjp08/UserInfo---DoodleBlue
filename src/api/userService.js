@@ -1,6 +1,6 @@
 const usersSchema = require("../models/users");
 const bcrypt = require("bcrypt");
-const commonService = require("./commonService");
+var jwt = require("jsonwebtoken");
 
 module.exports = (config) => {
   const commonService = require("./commonService")();
@@ -87,11 +87,75 @@ module.exports = (config) => {
             status: false,
             data: {},
             message: config.messages.notRegistered,
-          });gbhtrgh
+          });
         }
 
-        const passwordMatched = bcrypt.compareSync(password, userDetails[0].password);
-        console.log()
+        const passwordMatched = bcrypt.compareSync(
+          req.body.password,
+          userDetails[0].password
+        );
+        if (passwordMatched) {
+          const token = await commonService.generateJwtToken(
+            userDetails[0]._id
+          );
+          return res.status(200).json({
+            status: true,
+            data: token,
+            message: config.messages.loginSuccessful,
+          });
+        } else {
+          return res.status(401).json({
+            status: false,
+            data: {},
+            message: config.messages.invalidPassword,
+          });
+        }
+      } catch (e) {
+        return res.status(500).json({
+          status: false,
+          data: e,
+          message: config.messages.internalServerError,
+        });
+      }
+    },
+
+    forgotPassword: async (req, res) => {
+      try {
+        const validateParams = await commonService.forgotPasswordParams(
+          req.body
+        );
+        if (!validateParams) {
+          return res.status(400).json({
+            status: false,
+            data: {},
+            message: config.messages.invalidParams,
+          });
+        }
+
+        const userData = jwt.decode(
+          req.headers.token || req.headers["x-access-token"]
+        );
+
+        if (req.body.newPassword === req.body.confirmPassword) {
+          const saltPassword = bcrypt.hashSync(req.body.newPassword, 10);
+          const query = { _id: userData.userId };
+          let updateUserDetails = await usersSchema.updateOne(query, {
+            $set: {
+              password: saltPassword,
+            },
+          });
+          return res.status(200).json({
+            status: true,
+            data: {},
+            message: config.messages.updatedPassword,
+          });
+        } else {
+          return res.status(400).json({
+            status: false,
+            data: {},
+            message: config.messages.passwordShouldMatch,
+          });
+        }
       } catch (e) {
         return res.status(500).json({
           status: false,

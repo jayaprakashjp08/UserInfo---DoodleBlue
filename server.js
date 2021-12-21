@@ -33,6 +33,6 @@ app.use(
 );
 app.use(require("express").static(path.join(__dirname, "public")));
 
-http.listen(port, () => console.log("Application running on port 3000"));
+http.listen(port, () => console.log("Application running on port 8080"));
 app.use(router);
 require("./src/routes/routes.js")(router);

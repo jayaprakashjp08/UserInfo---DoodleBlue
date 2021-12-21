@@ -5,4 +5,9 @@ module.exports = (router) => {
 
   router.post(routes.api.registration, process.registration);
   router.post(routes.api.doLogin, process.doLogin);
+  router.post(
+    routes.api.forgotPassword,
+    process.verifyUserToken,
+    process.forgotPassword
+  );
 };
