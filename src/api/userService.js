@@ -16,15 +16,6 @@ module.exports = (config) => {
           });
         }
 
-        const validateEmail = await commonService.validateEmail(req.body.email);
-        if (!validateEmail) {
-          return res.status(400).json({
-            status: false,
-            data: {},
-            message: config.messages.invalidEmailFormat,
-          });
-        }
-
         const userDetails = await commonService.verifyEmail(req.body.email);
         if (userDetails.length) {
           return res.status(400).json({
@@ -69,15 +60,6 @@ module.exports = (config) => {
             status: false,
             data: {},
             message: config.messages.invalidParams,
-          });
-        }
-
-        const validateEmail = await commonService.validateEmail(req.body.email);
-        if (!validateEmail) {
-          return res.status(400).json({
-            status: false,
-            data: {},
-            message: config.messages.invalidEmailFormat,
           });
         }
 
@@ -175,9 +157,9 @@ module.exports = (config) => {
           $set: req.body,
         });
         return res.status(200).json({
-            status: true,
-            message: config.messages.profileUpdated,
-          });
+          status: true,
+          message: config.messages.profileUpdated,
+        });
       } catch (e) {
         return res.status(500).json({
           status: false,

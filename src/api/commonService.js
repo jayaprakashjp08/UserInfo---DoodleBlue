@@ -20,15 +20,16 @@ module.exports = () => {
       return false;
     },
 
-    validateEmail: (email) => {
-      let re =
-        /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-      return re.test(String(email)) ? true : false;
-    },
-
     verifyEmail: async (email) => {
       const query = { email: email };
-      const data = await usersSchema.find(query);
+      // const data = await usersSchema.find(query);
+      const data = await usersSchema.aggregate([
+        {
+          $match: {
+            $or: [{ email: email }, { phoneNumber: email }],
+          },
+        },
+      ]);
       return data;
     },
 
