@@ -23,9 +23,20 @@ module.exports = (config) => {
       userService.updateUserProfile(req, res, next);
     },
 
-
     addProducts: (req, res, next) => {
       productService.addProducts(req, res, next);
+    },
+
+    updateProducts: (req, res, next) => {
+      productService.updateProdஃஃஃucts(req, res, next);
+    },
+
+    productList: (req, res, next) => {
+      productService.productList(req, res, next);
+    },
+
+    deleteProduct: (req, res, next) => {
+      productService.deleteProduct(req, res, next);
     },
   };
 };

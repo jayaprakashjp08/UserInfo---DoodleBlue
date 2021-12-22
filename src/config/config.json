@@ -22,7 +22,9 @@
     "tokenExpired": "Token Expired",
     "updatedPassword": "Password updated successfully",
     "profileUpdated": "Profile Updated Successfully",
-    "addedSuccessfully": "Added Successfully"
+    "addedSuccessfully": "Added Successfully",
+    "updatedSuccessfully": "Updated Successfully",
+    "deletedSuccessfully": "Deleted Successfully"
   },
   "routes": {
     "api": {
@@ -31,7 +33,10 @@
       "forgotPassword": "/api/forgotPassword",
       "updateUserProfile": "/api/updateUserProfile",
 
-      "addProducts": "/api/addProducts"
+      "addProducts": "/api/addProducts",
+      "updateProducts": "/api/updateProducts",
+      "productList": "/api/productList",
+      "deleteProduct": "/api/deleteProduct"
     }
   },
   "JWT": {

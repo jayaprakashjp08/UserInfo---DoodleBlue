@@ -18,7 +18,10 @@ module.exports = (router) => {
     process.updateUserProfile
   );
 
-
   //products details
   router.post(routes.api.addProducts, process.addProducts);
+  router.put(routes.api.updateProducts, process.updateProducts);
+  router.put(routes.api.productList, process.productList);
+  router.put(routes.api.deleteProduct, process.deleteProduct);
+
 };
