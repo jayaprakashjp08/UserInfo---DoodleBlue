@@ -3,6 +3,7 @@ module.exports = (router) => {
   const routes = config.routes;
   const process = require("../utility/process")(config);
 
+  //user information storing
   router.post(routes.api.registration, process.registration);
   router.post(routes.api.doLogin, process.doLogin);
   router.post(
@@ -16,4 +17,8 @@ module.exports = (router) => {
     process.verifyUserToken,
     process.updateUserProfile
   );
+
+
+  //products details
+  router.post(routes.api.addProducts, process.addProducts);
 };

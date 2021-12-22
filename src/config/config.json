@@ -21,14 +21,17 @@
     "invalidToken": "Invalid Token",
     "tokenExpired": "Token Expired",
     "updatedPassword": "Password updated successfully",
-    "profileUpdated": "Profile Updated Successfully"
+    "profileUpdated": "Profile Updated Successfully",
+    "addedSuccessfully": "Added Successfully"
   },
   "routes": {
     "api": {
       "registration": "/api/registration",
       "doLogin": "/api/doLogin",
       "forgotPassword": "/api/forgotPassword",
-      "updateUserProfile": "/api/updateUserProfile"
+      "updateUserProfile": "/api/updateUserProfile",
+
+      "addProducts": "/api/addProducts"
     }
   },
   "JWT": {

@@ -20,6 +20,12 @@ module.exports = () => {
       return false;
     },
 
+    addProductsParams: (body) => {
+      if (body.productName && body.category && body.price)
+        return true;
+      return false;
+    },
+
     verifyEmail: async (email) => {
       const query = { email: email };
       // const data = await usersSchema.find(query);

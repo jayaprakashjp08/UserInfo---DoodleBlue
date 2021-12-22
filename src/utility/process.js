@@ -1,5 +1,6 @@
 module.exports = (config) => {
   const userService = require("../api/userService")(config);
+  const productService = require("../api/productService")(config);
   const authentication = require("../api/authentication")(config);
   return {
     registration: (req, res, next) => {
@@ -20,6 +21,11 @@ module.exports = (config) => {
 
     updateUserProfile: (req, res, next) => {
       userService.updateUserProfile(req, res, next);
+    },
+
+
+    addProducts: (req, res, next) => {
+      productService.addProducts(req, res, next);
     },
   };
 };
