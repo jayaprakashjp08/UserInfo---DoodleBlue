@@ -1,27 +1,10 @@
-module.exports = (router) => {
+module.exports = (router, docClient) => {
   const config = require("../config/config.json");
   const routes = config.routes;
-  const process = require("../utility/process")(config);
+  const process = require("../utility/process")(config,docClient);
 
   //user information storing
-  router.post(routes.api.registration, process.registration);
-  router.post(routes.api.doLogin, process.doLogin);
-  router.post(
-    routes.api.forgotPassword,
-    process.verifyUserToken,
-    process.forgotPassword
-  );
-
-  router.post(
-    routes.api.updateUserProfile,
-    process.verifyUserToken,
-    process.updateUserProfile
-  );
-
-  //products details
-  router.post(routes.api.addProducts, process.addProducts);
-  router.put(routes.api.updateProducts, process.updateProducts);
-  router.put(routes.api.productList, process.productList);
-  router.put(routes.api.deleteProduct, process.deleteProduct);
+  router.get(routes.api.getTableItems, process.getTableItems);
+  
 
 };

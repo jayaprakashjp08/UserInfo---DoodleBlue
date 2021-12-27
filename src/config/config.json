@@ -1,12 +1,5 @@
 {
   "port": 8080,
-  "database": {
-    "uri": "mongodb://localhost:27017/UserInfo?readPreference=primary&appname=MongoDB%20Compass&directConnection=true&ssl=false",
-    "database": "UserInfo",
-    "connectionLimit": 30,
-    "mutipleStatements": "true",
-    "charset": "utf8mb4"
-  },
   "messages": {
     "invalidParams": "Invalid Params",
     "invalidEmailFormat": "Invalid Email Format",
@@ -28,18 +21,17 @@
   },
   "routes": {
     "api": {
-      "registration": "/api/registration",
-      "doLogin": "/api/doLogin",
-      "forgotPassword": "/api/forgotPassword",
-      "updateUserProfile": "/api/updateUserProfile",
-
-      "addProducts": "/api/addProducts",
-      "updateProducts": "/api/updateProducts",
-      "productList": "/api/productList",
-      "deleteProduct": "/api/deleteProduct"
+      "getTableItems" : "/api/getTableItems"
     }
   },
   "JWT": {
     "secretKey": "doOdLeBluE"
+  },
+  "aws": {
+    "accessKey": "AKIAX6IIFHRZW3NFZH4W",
+    "secretKey": "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",
+    "region": "us-west-2",
+    "endpoint": "https://us-east-2.console.aws.amazon.com/",
+    "apiVersion" : "2010-12-01"
   }
 }
